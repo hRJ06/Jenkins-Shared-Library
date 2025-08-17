@@ -20,7 +20,7 @@ def call(Map config = [:]) {
         sh """
             sed -i "s|image: hrj06/ecommerce-app:.*|image: hrj06/ecommerce-app:${imageTag}|g" ${manifestsPath}/08-ecommerce-deploy.yml
             
-            if [ -f "${manifestsPath}/12-migration-job.yml" ]; then
+            if [ -f "${manifestsPath}/10-migration-job.yml" ]; then
                 sed -i "s|image: hrj06/ecommerce-migration:.*|image: hrj06/ecommerce-migration:${imageTag}|g" ${manifestsPath}/10-migration-job.yml
             fi
             
