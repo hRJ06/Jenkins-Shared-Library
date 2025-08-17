@@ -11,7 +11,7 @@ def call(Map config = [:]) {
         passwordVariable: 'DOCKERHUB_PASSWORD'
     )]) {
         sh "docker login -u ${env.DOCKERHUB_USER} -p ${env.DOCKERHUB_PASSWORD}"
-        sh "docker tag ${imageName}:latest ${env.DOCKERHUB_USER}/${imageName}:${imageTag}"
-        sh "docker push ${env.DOCKERHUB_USER}/${imageName}:${imageTag}"
+        sh "docker tag ${imageName}:latest ${imageName}:${imageTag}"
+        sh "docker push ${imageName}:${imageTag}"
     }
 }
